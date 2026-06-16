@@ -71,4 +71,32 @@ class ReservationController extends Controller
             
         return view('reservations.history', compact('reservations'));
     }
+
+    // Nampilin daftar peminjaman buat Admin
+    public function indexAdmin()
+    {
+        // Ambil semua data booking, urutin dari yang terbaru
+        $reservations = Reservation::with(['user', 'room'])->latest()->get();
+        return view('admin.reservations.index', compact('reservations'));
+    }
+
+    // Fungsi eksekusi Approve / Reject
+    public function updateStatus(Request $request, $id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        
+        // Update status peminjaman (approved / rejected)
+        $reservation->status = $request->status; 
+        $reservation->save();
+
+        // Kalau Admin milih 'approved', status ruangan otomatis berubah biar ga dipinjam orang lain
+        if ($request->status == 'approved') {
+            $room = Room::find($reservation->room_id);
+            // Pastiin teks 'maintenance' atau 'booked' ini sesuai sama enum di file migration lu
+            $room->status = 'maintenance'; 
+            $room->save();
+        }
+
+        return redirect()->back()->with('success', 'Status peminjaman berhasil diupdate Fik!');
+    }
 }

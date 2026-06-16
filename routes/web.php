@@ -15,4 +15,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/booking', [ReservationController::class, 'create'])->name('reservations.create');
     Route::post('/booking', [ReservationController::class, 'store'])->name('reservations.store');
     Route::get('/history', [ReservationController::class, 'history'])->name('reservations.history');
+
+    // Halaman daftar antrean booking
+    Route::get('/admin/reservations', [ReservationController::class, 'indexAdmin'])->name('admin.reservations.index');
+    
+    // Rute buat tombol Approve / Reject
+    Route::patch('/admin/reservations/{id}/update-status', [ReservationController::class, 'updateStatus'])->name('admin.reservations.updateStatus');
 });

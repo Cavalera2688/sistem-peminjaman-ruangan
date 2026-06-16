@@ -31,6 +31,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
+                           <li class="nav-item">
+                                <a class="nav-link text-success fw-bold" href="{{ route('admin.reservations.index') }}">Antrean Booking (Admin)</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link fw-bold" href="{{ route('reservations.create') }}">Pinjam Ruangan</a>
                             </li>
