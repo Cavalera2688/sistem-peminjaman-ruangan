@@ -53,4 +53,4 @@ class DatabaseSeeder extends Seeder
             'status' => 'maintenance',
         ]);
     }
-}
+}   

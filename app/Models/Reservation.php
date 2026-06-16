@@ -1,14 +1,17 @@
 <?php
-
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Room extends Model
+class Reservation extends Model
 {
-    //
-<<<<<<< HEAD
-=======
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id', 'room_id', 'start_time', 'end_time', 'purpose', 'status'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -18,5 +21,4 @@ class Room extends Model
     {
         return $this->belongsTo(Room::class);
     }
->>>>>>> origin/dev-krispiyanto
 }
