@@ -2,21 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    //
-<<<<<<< HEAD
-=======
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    use HasFactory;
 
-    public function room()
-    {
-        return $this->belongsTo(Room::class);
-    }
->>>>>>> origin/dev-krispiyanto
+    // Ini kunci buat buka gembok Mass Assignment-nya Fik!
+    protected $fillable = [
+        'name', 
+        'capacity', 
+        'facilities', 
+        'status'
+    ];
 }
