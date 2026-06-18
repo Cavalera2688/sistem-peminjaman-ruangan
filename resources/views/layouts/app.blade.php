@@ -40,7 +40,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('reservations.history') }}">Riwayat Peminjaman</a>
                             </li>
-                        @endauth    
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold text-primary" href="{{ route('rooms.index') }}">Master Ruangan</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -85,6 +88,10 @@
             @yield('content')
         </main>
     </div>
+<<<<<<< HEAD
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+=======
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> origin/dev-ananda
 </body>
 </html>

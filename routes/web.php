@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
 
 // Redirect langsung ke halaman login (Punya Fikri - lebih rapi)
+use App\Http\Controllers\RoomController;
 Route::redirect('/', '/login');
 
 Auth::routes();
@@ -21,4 +22,7 @@ Route::middleware('auth')->group(function () {
     
     // Rute buat tombol Approve / Reject
     Route::patch('/admin/reservations/{id}/update-status', [ReservationController::class, 'updateStatus'])->name('admin.reservations.updateStatus');
-});
+
+    // Taruh kodingan ini di dalem grup auth:
+    Route::resource('rooms', App\Http\Controllers\RoomController::class);
+   });
