@@ -9,6 +9,11 @@ class Room extends Model
 {
     use HasFactory;
 
-    // Tambahin baris ini:
-    protected $fillable = ['name', 'capacity', 'facilities', 'status'];
+    // Ini kunci buat buka gembok Mass Assignment-nya Fik!
+    protected $fillable = [
+        'name', 
+        'capacity', 
+        'facilities', 
+        'status'
+    ];
 }
