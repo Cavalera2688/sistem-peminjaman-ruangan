@@ -1,17 +1,17 @@
 <html>
 @extends('layouts.app')
 
-@section('content')
 <div class="container">
-    <div class="row justify-content-center">
+@section('content')
+<div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow-sm border-primary">
+                <h5 class="mb-0">Form Pinjam Ruangan</h5>
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Form Peminjaman Ruangan</h5>
-                </div>
-                <div class="card-body">
+                    </div>
                     @if (session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    <div class="card-body">
+                    <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
 
                     <form action="{{ route('reservations.store') }}" method="POST">
